@@ -114,7 +114,7 @@ const CreateTest = () => {
     const formData = new FormData();
     formData.append("file", file);
     try {
-      const response = await fetch("http://localhost:3040/dashboard/convert", {
+      const response = await fetch("https://stm.glasscube.io/dashboard/convert", {
         method: "POST",
         body: formData,
       });
@@ -160,7 +160,7 @@ const CreateTest = () => {
       };
 
     try {
-      const response = await fetch('http://localhost:3040/dashboard/create', {
+      const response = await fetch('https://stm.glasscube.io/dashboard/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(testDetails),

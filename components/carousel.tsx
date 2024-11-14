@@ -4,12 +4,14 @@ import { NextIcon, PreviousIcon } from './icons';
 
 const Carousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  
+  // List of image URLs
   const slides = [
-    'Slide 1 content',
-    'Slide 2 content',
-    'Slide 3 content',
-    'Slide 4 content',
-    'Slide 5 content',
+    'https://studydrome.com/wp-content/uploads/2023/05/google-forms-alternative.png',  // Replace with actual image URLs
+    'https://via.placeholder.com/600x400?text=Slide+2',
+    'https://via.placeholder.com/600x400?text=Slide+3',
+    'https://via.placeholder.com/600x400?text=Slide+4',
+    'https://via.placeholder.com/600x400?text=Slide+5',
   ];
 
   // Automatically advance the slide every 5 seconds
@@ -32,22 +34,23 @@ const Carousel = () => {
   };
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-gray-200 ">
+    <div className="relative w-full h-screen overflow-hidden bg-gray-200">
       {/* Display the current slide */}
-      <div className="flex flew-col items-center justify-center h-full text-xl font-bold text-white bg-blue-900">
-        {slides[currentSlide]}
+      <div className="flex flex-col items-center justify-center h-full text-xl font-bold text-white bg-blue-900">
+        {/* Image Display */}
+        <img src={slides[currentSlide]} alt={`Slide ${currentSlide + 1}`} className="w-full h-full object-cover" />
         
         {/* Indicator dots */}
-      <div className="flex justify-center space-x-2">
-        {slides.map((_, index) => (
-          <div
-            key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === currentSlide ? 'bg-gray-300' : 'bg-gray-400'
-            }`}
-          />
-        ))}
-      </div>
+        <div className="flex justify-center space-x-2">
+          {slides.map((_, index) => (
+            <div
+              key={index}
+              className={`w-3 h-3 rounded-full ${
+                index === currentSlide ? 'bg-gray-300' : 'bg-gray-400'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Navigation buttons */}
@@ -63,8 +66,6 @@ const Carousel = () => {
       >
         <NextIcon size={24} color="white" />
       </button>
-
-      
     </div>
   );
 };

@@ -32,7 +32,7 @@ const Tests = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:3040/dashboard/tests', {
+        const response = await fetch('https://stm.glasscube.io/dashboard/tests', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Tests = () => {
   }, []);
 
   const handlePreview = (url: string) => {
-    const fullUrl = `https://glasscube.io/${url}`;
+    const fullUrl = `https://tm.glasscube.io/${url}`;
     window.open(fullUrl, '_blank'); // Open preview in a new tab
   };
 
@@ -85,7 +85,7 @@ const Tests = () => {
                   <Tooltip content={item.desc} color="primary">
                     <p className="text-gray-700 mb-2">Description: {item.desc.slice(0, 60)}...</p>
                   </Tooltip>
-                  <p className="text-gray-600">URL: <a href={`https://tm.glasscube.io/${item.url}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">{`glasscube.io/${item.url}`}</a></p>
+                  <p className="text-gray-600">URL: <a href={`https://tm.glasscube.io/${item.url}`} target="_blank" rel="noopener noreferrer" className="text-blue-500">{`tm.glasscube.io/${item.url}`}</a></p>
                 </div>
 
                 {/* QR Code */}

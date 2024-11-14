@@ -32,8 +32,8 @@ const Registr = () => {
     e.preventDefault();
 
     const url = isSignUp
-      ? 'http://localhost:3040/auth/signup'
-      : 'http://localhost:3040/auth/signin';
+      ? 'https://stm.glasscube.io/auth/signup'
+      : 'https://stm.glasscube.io/auth/signin';
 
     const requestBody = isSignUp
       ? {

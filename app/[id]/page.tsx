@@ -43,7 +43,7 @@ export default function TestTakingPage({ params }: { params: { id: string } }) {
 
   useEffect(() => {
     axios
-      .post('http://localhost:3040/dashboard/test', { id: params.id })
+      .post('https://stm.glasscube.io/dashboard/test', { id: params.id })
       .then((response) => {
         const test = response.data.test as Test;
         setTest(test);
@@ -61,7 +61,7 @@ export default function TestTakingPage({ params }: { params: { id: string } }) {
   const handleUserDetailsSubmit = async () => {
     if (username && email) {
       try {
-        const response = await fetch("http://localhost:3040/user/create", {
+        const response = await fetch("https://stm.glasscube.io/user/create", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export default function TestTakingPage({ params }: { params: { id: string } }) {
     };
 
     try {
-      await axios.post('http://localhost:3040/dashboard/submit', payload);
+      await axios.post('https://stm.glasscube.io/dashboard/submit', payload);
       setTestSubmitted(true);  // Set the test as submitted
       await axios.post(`api/email/survey`, {email:email, username:username, testTitle:test?.name});
     } catch (error) {

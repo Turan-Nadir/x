@@ -27,7 +27,7 @@ export default function ReportPage({ params }: { params: { id: string } }) {
     // Fetch report data when component mounts
     const fetchReport = async () => {
       try {
-        const response = await axios.post('http://localhost:3040/dashboard/report', { id: params.id });
+        const response = await axios.post('https://stm.glasscube.io/dashboard/report', { id: params.id });
         setReport(response.data.report);
       } catch (error) {
         console.error('Error fetching report:', error);
